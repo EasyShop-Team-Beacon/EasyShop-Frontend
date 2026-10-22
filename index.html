@@ -1,308 +1,229 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyShop | Votre Boutique de Mode & High-Tech au Cameroun</title>
-    <style>
-        /* Styles de Base Propres */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f9fafb;
-            color: #1f2937;
-        }
-        header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #4b5563;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: #2563eb;
-        }
-        
-        /* Section Bannière (Hero) */
-        .hero {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-size: 40px;
-            color: #1e3a8a;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 18px;
-            color: #4b5563;
-            margin-bottom: 30px;
-        }
-        .btn {
-            background-color: #2563eb;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-            transition: background 0.3s;
-        }
-        .btn:hover {
-            background-color: #1d4ed8;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyShop - Welcome to Your Store</title>
+  <style>
+    /* Basic Reset & Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-        /* Section Produits Réels */
-        .products-section {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-        .products-section h2 {
-            font-size: 28px;
-            margin-bottom: 40px;
-            text-align: center;
-            position: relative;
-        }
-        .products-section h2::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background-color: #2563eb;
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            border: 1px solid #f3f4f6;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card-img {
-            width: 100%;
-            height: 250px;
-            background-color: #e5e7eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #9ca3af;
-            font-weight: bold;
-        }
-        .card-body {
-            padding: 20px;
-        }
-        .card-tag {
-            font-size: 12px;
-            color: #2563eb;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        .card-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #1f2937;
-        }
-        .card-price {
-            font-size: 20px;
-            font-weight: bold;
-            color: #10b981;
-            margin-bottom: 15px;
-        }
-        .btn-cart {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background-color: #1f2937;
-            color: white;
-            padding: 10px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
-        .btn-cart:hover {
-            background-color: #374151;
-        }
+    body {
+      color: #333;
+      line-height: 1.6;
+    }
 
-        /* Pied de page informatif (Essentiel pour Meta) */
-        footer {
-            background-color: #111827;
-            color: #9ca3af;
-            padding: 40px 20px;
-            margin-top: 100px;
-        }
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-        .footer-col h3 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-        .footer-col p, .footer-col ul {
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        .footer-col ul {
-            list-style: none;
-        }
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid #374151;
-            text-align: center;
-            font-size: 14px;
-        }
-    </style>
+    /* Header & Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff5722;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .btn-cta {
+      background-color: #ff5722;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 10%;
+      background-color: #fff8f3;
+    }
+
+    .hero-content {
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      color: #222;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #666;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-image div {
+      background-color: #ddd;
+      height: 300px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-weight: bold;
+    }
+
+    /* Products Section */
+    .products {
+      padding: 60px 10%;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: left;
+      background: #fff;
+    }
+
+    .product-card .img-box {
+      height: 180px;
+      background: #f4f4f4;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+    }
+
+    .product-card h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .product-card .price {
+      color: #ff5722;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .product-card button {
+      width: 100%;
+      padding: 10px;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <header>
-        <nav class="nav-container">
-            <a href="#" class="logo">EasyShop</a>
-            <ul class="nav-links">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Boutique</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">EasyShop</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#shop" class="btn-cta">Shop Now</a>
+  </header>
 
-    <!-- Section Principale -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Découvrez l'Excellence High-Tech & Accessoires</h1>
-            <p>EasyShop vous propose une sélection rigoureuse d'équipements connectés haut de gamme avec une livraison rapide partout au Cameroun.</p>
-            <a href="#" class="btn">Découvrir les nouveautés</a>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover Your Favorite Products Online</h1>
+      <p>EasyShop brings you the best deals, fast delivery, and top-quality items right to your doorstep.</p>
+      <a href="#products" class="btn-cta">Explore Products</a>
+    </div>
+    <div class="hero-image">
+      <div>[ Hero Image Placeholder ]</div>
+    </div>
+  </section>
 
-    <!-- Grille des Produits Modifiée (Fini le texte générique) -->
-    <section class="products-section">
-        <h2>Nos Produits Vedettes</h2>
-        <div class="grid">
-            
-            <!-- Produit 1 -->
-            <div class="card">
-                <div class="card-img" style="background: #e2e8f0; color: #475569;">🎧 Audio Premium</div>
-                <div class="card-body">
-                    <div class="card-tag">Électronique</div>
-                    <h3 class="card-title">Écouteurs Sans Fil Pro ANC</h3>
-                    <div class="card-price">32 500 FCFA</div>
-                    <a href="#" class="btn-cart">Ajouter au panier</a>
-                </div>
-            </div>
+  <!-- Featured Products Section -->
+  <section class="products" id="products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="img-box">Product 1</div>
+        <h3>Wireless Headphones</h3>
+        <p class="price">$49.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <div class="img-box">Product 2</div>
+        <h3>Smart Watch</h3>
+        <p class="price">$89.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <div class="img-box">Product 3</div>
+        <h3>Running Shoes</h3>
+        <p class="price">$65.00</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </section>
 
-            <!-- Produit 2 -->
-            <div class="card">
-                <div class="card-img" style="background: #fed7aa; color: #ea580c;">⌚ Smartwatch</div>
-                <div class="card-body">
-                    <div class="card-tag">Gadgets</div>
-                    <h3 class="card-title">Montre Connectée Sport Series v2</h3>
-                    <div class="card-price">58 900 FCFA</div>
-                    <a href="#" class="btn-cart">Ajouter au panier</a>
-                </div>
-            </div>
-
-            <!-- Produit 3 -->
-            <div class="card">
-                <div class="card-img" style="background: #bbf7d0; color: #166534;">👟 Sportswear</div>
-                <div class="card-body">
-                    <div class="card-tag">Chaussures</div>
-                    <h3 class="card-title">Basket de Course Performance-X</h3>
-                    <div class="card-price">42 000 FCFA</div>
-                    <a href="#" class="btn-cart">Ajouter au panier</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Mentions Légales pour rassurer Meta -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>À propos de EasyShop</h3>
-                <p>EasyShop est votre partenaire de confiance pour l'achat de matériel électronique et d'accessoires de mode au Cameroun. Fiabilité, rapidité et qualité de service garantie.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Contact & Support</h3>
-                <ul>
-                    <li>📍 Douala / Yaoundé, Cameroun</li>
-                    <li>📧 support@easyshop-one.vercel.app</li>
-                    <li>📞 Service Client : Disponible via WhatsApp</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Nos Engagements</h3>
-                <ul>
-                    <li>✓ Produits 100% Authentiques</li>
-                    <li>✓ Service après-vente réactif</li>
-                    <li>✓ Paiements sécurisés à la livraison</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 EasyShop. Tous droits réservés. Politique de confidentialité & Conditions Générales de Vente.</p>
-        </div>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 EasyShop. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
